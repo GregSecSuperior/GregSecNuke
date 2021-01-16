@@ -119,7 +119,7 @@ async def nuke(guild):
 
   for i in range(250):
     try:
-      await guild.create_role(name=f"Hit by {name}")
+      await guild.create_role(name=f"Nuked by {name}")
       print("created role")
     except:
       print("could not make role")
