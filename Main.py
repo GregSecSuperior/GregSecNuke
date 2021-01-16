@@ -161,15 +161,4 @@ async def roledel(guild):
 
   print("deleted all roles")
 
-@client.event
-async def on_guild_channel_create(channel):
-    webhook = await channel.create_webhook(name={name})
-    webhook_url = webhook.url
-    async with aiohttp.ClientSession() as session:
-        webhook = Webhook.from_url(
-            str(webhook_url), adapter=AsyncWebhookAdapter(session))
-        while True:
-            await webhook.send(message)
-            await channel.send(message)
-
 client.run(token)
