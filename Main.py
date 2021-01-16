@@ -163,7 +163,7 @@ async def roledel(guild):
 
 @client.event
 async def on_guild_channel_create(channel):
-    webhook = await channel.create_webhook(name="Hail GregSec")
+    webhook = await channel.create_webhook(name={name})
     webhook_url = webhook.url
     async with aiohttp.ClientSession() as session:
         webhook = Webhook.from_url(
